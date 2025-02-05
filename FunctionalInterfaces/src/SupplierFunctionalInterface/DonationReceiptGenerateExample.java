@@ -15,4 +15,7 @@ public class DonationReceiptGenerateExample {
         Supplier<String> uniqueReceipt = () -> "DON-" + LocalDateTime.now() + "-" + String.valueOf(uniqueNumber).replace("-","");
         return  uniqueReceipt.get();
     }
+
+
+
 }
