@@ -7,6 +7,7 @@ import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -54,11 +55,16 @@ public class Main {
         SecureRandom secureRandom = new SecureRandom();
         long uniqueNumber = secureRandom.nextLong();
 
+        System.out.println("Implementation 1 :");
         Main.processDonation(books, donor, eachBook -> {
             System.out.printf("Book with the title : %s is donated by %s %n", eachBook.getTitle(), eachBook.getDonor().getName());
         }, () -> "DON-" + LocalDateTime.now() + "-" + String.valueOf(uniqueNumber).replace("-", ""));
-    }
 
+        System.out.println("Implementation 2 :");
+        Main.processDonation(books, donor, eachBook -> {
+            System.out.printf("Book with the title : %s is donated by %s %n", eachBook.getTitle(), eachBook.getDonor().getName());
+        }, () -> "DON-" + LocalDateTime.now() + "-" + UUID.randomUUID().toString().replace("-", "").toUpperCase().substring(0,5));
+    }
 
     private static void processDonation(List<Book> books, Donor donor, Consumer<Book> donateLogConsumer, Supplier<String> generateReceiptNoSupplier) {
 
