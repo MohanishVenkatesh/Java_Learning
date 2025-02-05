@@ -6,6 +6,6 @@ public enum Genre {
     MANGA,
     BIOGRAPHY,
     HORROR,
-    ROMANCE;
+    ROMANCE
 
 }
