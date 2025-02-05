@@ -2,6 +2,7 @@ import ConsumerFunctionalInterface.BookDonationExample;
 import ConsumerFunctionalInterface.ConsumerFiExample;
 import Model.Book;
 import Model.Donor;
+import SupplierFunctionalInterface.DonationReceiptGenerateExample;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,5 +35,12 @@ public class Main {
         books.add(book2);
 
         bookDonationExample.donateBooks(books,donor);
+
+        /* Example 2 using Supplier Functional Interface : Generating a unique Donation Receipt Number */
+
+        DonationReceiptGenerateExample donationReceiptGenerateExample = new DonationReceiptGenerateExample();
+
+        books.forEach(eachBook -> System.out.println(eachBook.getTitle() + " -> " + donationReceiptGenerateExample.generateDonationReceipt()));
+
     }
 }
