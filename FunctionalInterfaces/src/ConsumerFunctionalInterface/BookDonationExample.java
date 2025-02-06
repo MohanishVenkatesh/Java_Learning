@@ -9,13 +9,11 @@ public class BookDonationExample {
 
     public void donateBooks(List<Book> donatedBooks, Donor donor) {
 
-        for (Book donatedBook : donatedBooks) {
-            donatedBook.setDonor(donor);
-        }
 
         // Implementation of Consumer Interface to log books
         Consumer<List<Book>> logInInventory = books -> books.forEach
                 (book -> {
+                            book.setDonor(donor);
                             System.out.printf("Book with the title : %s is donated by %s%n", book.getTitle(), book.getDonor().getName());
                             System.out.println("Successfully Logged into the System");
                         }
