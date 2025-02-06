@@ -11,6 +11,10 @@ public class Donor {
     public Donor() {
     }
 
+    public Donor(String name) {
+        this.name = name;
+    }
+
     public Donor(String name, int age, String gender, String address, String phone, String email) {
         this.name = name;
         this.age = age;
