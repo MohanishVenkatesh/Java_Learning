@@ -1,9 +1,12 @@
+import Constants.BookFilterType;
 import Constants.Genre;
 import ConsumerFunctionalInterface.BookDonationExample;
 import ConsumerFunctionalInterface.ConsumerFiExample;
+import Dtos.FilterDto;
 import FunctionFunctionalInterface.FormatedSummaryExample;
 import Model.Book;
 import Model.Donor;
+import PredicateFunctionalInterface.BookPresentOrNotExample;
 import SupplierFunctionalInterface.DonationReceiptGenerateExample;
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
@@ -97,7 +100,14 @@ public class Main {
         FormatedSummaryExample formatedSummaryExample = new FormatedSummaryExample();
         books.forEach(eachbook -> System.out.println(formatedSummaryExample.generateFormatedBookSummary(eachbook)));
 
-
+        System.out.println("###################################### Example 5 ##############################################################");
+        // Example 5 using Predicate Functional Interface
+        BookPresentOrNotExample bookPresentOrNotExample = new BookPresentOrNotExample();
+        FilterDto filterDto = new FilterDto();
+        filterDto.setBookFilterType(BookFilterType.author);
+        filterDto.setBookFilterValue("James clear");
+        filterDto.setBookList(books);
+        System.out.println(bookPresentOrNotExample.isBookPresentOrNot(filterDto));
     }
 
     private static void processDonation(List<Book> books, Donor donor, Consumer<Book> donateLogConsumer, Supplier<String> generateReceiptNoSupplier

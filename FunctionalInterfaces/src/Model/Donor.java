@@ -14,4 +14,8 @@ public class Donor {
     private String address;
     private String phone;
     private String email;
+
+    public Donor(String bob) {
+        this.name = bob;
+    }
 }
